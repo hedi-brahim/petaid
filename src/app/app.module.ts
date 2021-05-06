@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { IndicatorsModule } from '@progress/kendo-angular-indicators';
 import { IconsModule } from '@progress/kendo-angular-icons';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
+
 
 
 
@@ -25,7 +27,8 @@ import { IconsModule } from '@progress/kendo-angular-icons';
     BrowserAnimationsModule,
     LayoutModule,
     IndicatorsModule,
-    IconsModule
+    IconsModule,
+    ButtonsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

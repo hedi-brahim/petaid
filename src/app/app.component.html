@@ -1,7 +1,7 @@
 <kendo-appbar [position]="'top'">
   <kendo-appbar-section>
       <button class="k-button k-button-clear">
-          <kendo-icon [name]="'menu'"></kendo-icon>
+          <kendo-icon style="font-size: 2em; color: Tomato;" [name]="'menu'"></kendo-icon>
       </button>
   </kendo-appbar-section>
 
@@ -30,8 +30,11 @@
       </kendo-badge-container>
       <span class="k-appbar-separator"></span>
   </kendo-appbar-section-->
-
-  <kendo-appbar-section>
+<kendo-appbar-section>
+  <button kendoButton style="font-size: 2em; color: Tomato;" iconClass="fas fa-sign-in-alt">Sign-In</button>
+  <!--i class="fas fa-sign-in-alt"></i-->
+</kendo-appbar-section>
+  <!--kendo-appbar-section>
       <kendo-avatar [imageSrc]="kendokaAvatar" [shape]="'circle'" [width]="'26px'" [height]="'26px'"></kendo-avatar>
-  </kendo-appbar-section>
+  </kendo-appbar-section-->
 </kendo-appbar>
