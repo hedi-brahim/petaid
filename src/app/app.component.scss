@@ -1,0 +1,27 @@
+body {
+    background: #adadb1;
+}
+.title {
+    font-size: 18px;
+    margin: 0;
+}
+kendo-badge-container {
+    margin-right: 8px;
+}
+ul {
+    font-size: 14px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+li {
+    margin: 0 9px;
+}
+li:hover {
+    cursor: pointer;
+    color: #D6002F;
+}
+.actions .k-button {
+    padding: 0;
+}

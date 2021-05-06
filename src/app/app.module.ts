@@ -3,6 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavigationModule } from '@progress/kendo-angular-navigation';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LayoutModule } from '@progress/kendo-angular-layout';
+import { IndicatorsModule } from '@progress/kendo-angular-indicators';
+import { IconsModule } from '@progress/kendo-angular-icons';
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -10,7 +20,12 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NavigationModule,
+    BrowserAnimationsModule,
+    LayoutModule,
+    IndicatorsModule,
+    IconsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
