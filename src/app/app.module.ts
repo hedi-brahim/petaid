@@ -10,10 +10,8 @@ import { IndicatorsModule } from '@progress/kendo-angular-indicators';
 import { IconsModule } from '@progress/kendo-angular-icons';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 
-
-
-
-
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -22,6 +20,7 @@ import { ButtonsModule } from '@progress/kendo-angular-buttons';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),    
     AppRoutingModule,
     NavigationModule,
     BrowserAnimationsModule,

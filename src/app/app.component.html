@@ -38,3 +38,21 @@
       <kendo-avatar [imageSrc]="kendokaAvatar" [shape]="'circle'" [width]="'26px'" [height]="'26px'"></kendo-avatar>
   </kendo-appbar-section-->
 </kendo-appbar>
+
+
+<div class="w3-row">
+    <div *ngFor="let item of item$ | async" class="w3-col s6 m4 l2"
+    (click)="setSelectedAd(annonce)" onclick="document.getElementById('id-ad-details').style.display='block'">
+      <div class="w3-container w3-margin-bottom	">
+        <div class="w3-hover-shadow w3-round-xlarge" style="cursor:pointer;">
+          <img src="assets/avatar3.png" alt="annonce" style="height:150px; object-fit: cover; width:100%; border-radius:5%;">
+          <!--img src={{annonce.imgs[0]}} alt="annonce1" style="height:150px;object-fit: cover;width:100%;border-radius:5%;"-->
+          <div class="w3-container" style="height:75px;" >
+            <p><span style="font-weight: bold;">150 DT</span>
+              {{item.name}}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>

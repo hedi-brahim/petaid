@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "petaid-95d12": {
+      "hosting": {
+        "petaid": [
+          "petaid-95d12"
+        ]
+      }
+    }
+  }
+}
