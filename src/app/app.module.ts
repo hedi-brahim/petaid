@@ -12,11 +12,13 @@ import { ButtonsModule } from '@progress/kendo-angular-buttons';
 
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
+import { AppBarComponent } from './components/app-bar/app-bar.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppBarComponent
   ],
   imports: [
     BrowserModule,
