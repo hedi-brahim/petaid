@@ -1,0 +1,107 @@
+<kendo-dialog title="Please confirm" *ngIf="toggle" (close)="close()" [height]="550" [width]="400">
+
+    <kendo-stepper #stepper [steps]="steps" stepType="full" [(currentStep)]="currentStep"> </kendo-stepper>
+    
+    <form class="k-form" [formGroup]="petForm" (ngSubmit)="onSubmit()">
+
+        <fieldset class="k-form-fieldset">
+            <legend class="k-form-legend">Pet Details</legend>
+
+            <div class="wrap">
+                <kendo-formfield class="left-control">
+                    <kendo-label [for]="Name" text="Name"></kendo-label>
+                    <input formControlName="name" kendoTextBox #Name required />
+
+                    <kendo-formerror>required</kendo-formerror>
+                </kendo-formfield>
+
+
+                <kendo-formfield>
+                    <kendo-label [for]="Species" text="Species"></kendo-label>
+                    <input formControlName="species" kendoTextBox #Species required />
+
+                    <kendo-formerror>required</kendo-formerror>
+                </kendo-formfield>
+            </div>
+
+            <div class="wrap">
+                <kendo-formfield class="left-control" orientation="horizontal" showHints="initial">
+                    <label class="k-label">Gender</label>
+
+                    <ul class="k-radio-list k-list-horizontal">
+                        <li class="k-radio-item">
+                            <input type="radio" #male value="male" kendoRadioButton formControlName="gender" />
+                            <kendo-label class="k-radio-label" [for]="male" text="Male"></kendo-label>
+                        </li>
+
+                        <li class="k-radio-item">
+                            <input type="radio" #female value="female" kendoRadioButton formControlName="gender" />
+                            <kendo-label class="k-radio-label" [for]="female" text="Female"></kendo-label>
+                        </li>
+                    </ul>
+
+                    <kendo-formerror>required</kendo-formerror>
+                </kendo-formfield>
+
+                <kendo-formfield>
+                    <kendo-label [for]="Breed" text="Breed"></kendo-label>
+                    <input formControlName="breed" kendoTextBox #Breed required />
+
+                    <kendo-formerror>required</kendo-formerror>
+                </kendo-formfield>
+
+            </div>
+
+            <div class="wrap">
+                <kendo-formfield class="left-control">
+                    <kendo-label [for]="Color" text="Dominant Color"></kendo-label>
+                    <!--input formControlName="color" kendoTextBox #Color required /-->
+                    <kendo-colorpicker #Color formControlName="color" view="palette"
+                        [paletteSettings]="{ palette: 'austin' }" required></kendo-colorpicker>
+                    <kendo-formerror>required</kendo-formerror>
+                </kendo-formfield>
+
+                <kendo-formfield>
+                    <kendo-label [for]="Size" text="Size"></kendo-label>
+                    <input formControlName="size" kendoTextBox #Size required />
+
+                    <kendo-formerror>required</kendo-formerror>
+                </kendo-formfield>
+            </div>
+
+            <div class="wrap">
+                <kendo-formfield class="left-control">
+                    <kendo-label [for]="Weight" text="Weight"></kendo-label>
+                    <kendo-numerictextbox #Weight formControlName="weight" [min]="0" [max]="80" required>
+                    </kendo-numerictextbox>
+                    <kendo-formerror>required</kendo-formerror>
+                </kendo-formfield>
+
+                <kendo-formfield>
+                    <kendo-label [for]="Age" text="Age"></kendo-label>
+                    <kendo-numerictextbox #Age formControlName="age" [min]="0" [max]="100" required>
+                    </kendo-numerictextbox>
+                    <kendo-formerror *ngIf="petForm.controls.age.errors?.required">required</kendo-formerror>
+                    <kendo-formerror *ngIf="petForm.controls.age.errors?.max">Not a valid age</kendo-formerror>
+                </kendo-formfield>
+            </div>
+
+
+
+            <div class="k-form-buttons">
+                <button class="k-button" type="reset">Clear</button>
+                <button class="k-button k-primary" type="submit" [disabled]="!petForm.valid">Submit</button>
+            </div>
+        </fieldset>
+    </form>
+    <!-- Just for debugging purpose -->
+    <!--div>
+  <p>
+    Form Value: {{ petForm.value | json }}
+  </p>
+
+  <p>
+    Form Status: {{ petForm.status }}
+  </p>
+</div-->
+</kendo-dialog>

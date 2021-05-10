@@ -1,17 +1,17 @@
 <kendo-appbar [position]="'top'">
-    <kendo-appbar-section>
-        <button class="k-button k-button-clear">
-            <kendo-icon style="font-size: 2em; color: Tomato;" [name]="'menu'"></kendo-icon>
-        </button>
-    </kendo-appbar-section>
-  
-    <kendo-appbar-section>
-        <h1 class="title">Pet Aid your app for helping pets</h1>
-    </kendo-appbar-section>
-  
-    <kendo-appbar-spacer></kendo-appbar-spacer>
-  
-    <!--kendo-appbar-section>
+  <kendo-appbar-section>
+    <button class="k-button k-button-clear">
+      <kendo-icon style="font-size: 2em; color: Tomato;" [name]="'menu'"></kendo-icon>
+    </button>
+  </kendo-appbar-section>
+
+  <kendo-appbar-section>
+    <h1 class="title">Pet Aid your app for helping pets</h1>
+  </kendo-appbar-section>
+
+  <kendo-appbar-spacer></kendo-appbar-spacer>
+
+  <!--kendo-appbar-section>
         <ul>
             <li><span>What's New</span></li>
             <li><span>About</span></li>
@@ -30,33 +30,64 @@
         </kendo-badge-container>
         <span class="k-appbar-separator"></span>
     </kendo-appbar-section-->
-    <kendo-appbar-section>
-      <button kendoButton style="font-size: 2em; color: Tomato;" iconClass="fas fa-plus-square" (click)="onButtonClick()">I lost my pet</button>
-      <!--i class="fas fa-sign-in-alt"></i-->
-    </kendo-appbar-section>
+  <kendo-appbar-section>
+    <button kendoButton style="font-size: 2em; color: Tomato;" iconClass="fas fa-plus-square"
+      (click)="open()">I lost my pet</button>
+    <!--i class="fas fa-sign-in-alt"></i-->
+  </kendo-appbar-section>
   <kendo-appbar-section>
     <button kendoButton style="font-size: 2em; color: Tomato;" iconClass="fas fa-sign-in-alt">Sign-In</button>
     <!--i class="fas fa-sign-in-alt"></i-->
   </kendo-appbar-section>
-    <!--kendo-appbar-section>
+  <!--kendo-appbar-section>
         <kendo-avatar [imageSrc]="kendokaAvatar" [shape]="'circle'" [width]="'26px'" [height]="'26px'"></kendo-avatar>
     </kendo-appbar-section-->
-  </kendo-appbar>
-  
-  
-  <div class="w3-row">
-      <div *ngFor="let item of item$ | async" class="w3-col s6 m4 l2"
-      (click)="setSelectedAd(annonce)" onclick="document.getElementById('id-ad-details').style.display='block'">
-        <div class="w3-container w3-margin-bottom	">
-          <div class="w3-hover-shadow w3-round-xlarge" style="cursor:pointer;">
-            <img src="assets/avatar3.png" alt="annonce" style="height:150px; object-fit: cover; width:100%; border-radius:5%;">
-            <!--img src={{annonce.imgs[0]}} alt="annonce1" style="height:150px;object-fit: cover;width:100%;border-radius:5%;"-->
-            <div class="w3-container" style="height:75px;" >
-              <p><span style="font-weight: bold;">150 DT</span>
-                {{item.name}}</p>
-            </div>
-          </div>
-  
+</kendo-appbar>
+
+
+<div class="w3-row">
+  <div *ngFor="let item of item$ | async" class="w3-col s6 m4 l2" (click)="setSelectedAd(annonce)"
+    onclick="document.getElementById('id-ad-details').style.display='block'">
+    <div class="w3-container w3-margin-bottom	">
+      <div class="w3-hover-shadow w3-round-xlarge" style="cursor:pointer;">
+        <img src="assets/avatar3.png" alt="annonce"
+          style="height:150px; object-fit: cover; width:100%; border-radius:5%;">
+        <!--img src={{annonce.imgs[0]}} alt="annonce1" style="height:150px;object-fit: cover;width:100%;border-radius:5%;"-->
+        <div class="w3-container" style="height:75px;">
+          <p><span style="font-weight: bold;">150 DT</span>
+            {{item.name}}</p>
         </div>
       </div>
+
     </div>
+  </div>
+</div>
+
+
+  <!--form class="k-form">
+        <fieldset>
+            <legend>User Details</legend>
+
+            <label class="k-form-field">
+                <span>First Name</span>
+                <input class="k-textbox" placeholder="Your Name" />
+            </label>
+            <label class="k-form-field">
+                <span>Last Name</span>
+                <input class="k-textbox" placeholder="Your Last Name" />
+            </label>
+        </fieldset>
+
+        <div class="text-right">
+            <button type="button" class="k-button" (click)="close('no')">Cancel</button>
+            <button type="button" class="k-button k-primary" (click)="submit()">Submit</button>
+        </div>
+    </form-->
+  <!--kendo-textbox [value]="normalValue" [formControl]="name" [clearButton]="true">
+  </kendo-textbox>
+  <p style="margin: 30px; text-align: center;">Are you sure you want to continue? {{name.value}}</p>
+  <kendo-dialog-actions>
+    <button kendoButton (click)="close('no')">No</button>
+    <button kendoButton (click)="close('yes')" primary="true">Yes</button>
+  </kendo-dialog-actions-->
+  <app-pet [(toggle)]="toggle"></app-pet>

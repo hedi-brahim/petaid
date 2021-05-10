@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
 
 export interface Item { name: string; }
 
@@ -11,9 +12,15 @@ export interface Item { name: string; }
 })
 export class AppBarComponent implements OnInit {
 
-  public kendokaAvatar = 'https://www.telerik.com/kendo-angular-ui-develop/components/navigation/appbar/assets/kendoka-angular.png';  
+  public kendokaAvatar = 'https://www.telerik.com/kendo-angular-ui-develop/components/navigation/appbar/assets/kendoka-angular.png';
 
   private itemsCollection: AngularFirestoreCollection<Item>;
+
+  name = new FormControl('ttttt');
+
+  //pet = { name: this.name.value}
+
+  
 
   items: Observable<Item[]>;
 
@@ -22,7 +29,7 @@ export class AppBarComponent implements OnInit {
     this.items = this.itemsCollection.valueChanges();
   }
 
-  ngOnInit(){}
+  ngOnInit() { }
 
   addItem(item: Item) {
     this.itemsCollection.add(item);
@@ -36,6 +43,24 @@ export class AppBarComponent implements OnInit {
 
   public onButtonClick(): void {
     console.log('click');
-    this.addItem({name:"hedi tayara"});
-}
+    this.addItem({ name: this.name.value});
+  }
+
+  public toggle = false;
+
+  //public close(flag) {
+      //console.log(`Dialog result: ${status}`);
+      //if(status === 'yes'){
+        //this.addItem({ name: this.name.value});
+        //console.log(`Dialog result: ${this.normalValue}`)
+      //}
+      //this.toggle = flag;
+  //}
+
+  public open() {
+      this.toggle = true;
+  }
+
+  public normalValue = 'Editable TextBox';
+
 }
