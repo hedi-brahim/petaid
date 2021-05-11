@@ -18,6 +18,9 @@ import { InputsModule } from '@progress/kendo-angular-inputs';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PetComponent } from './components/forms/pet/pet.component';
 import { LabelModule } from '@progress/kendo-angular-label';
+import { PetDetails1Component } from './components/forms/pet/pet-details1/pet-details1.component';
+import { PetDetails2Component } from './components/forms/pet/pet-details2/pet-details2.component';
+import { PetDetails3Component } from './components/forms/pet/pet-details3/pet-details3.component';
 
 
 
@@ -26,7 +29,10 @@ import { LabelModule } from '@progress/kendo-angular-label';
   declarations: [
     AppComponent,
     AppBarComponent,
-    PetComponent
+    PetComponent,
+    PetDetails1Component,
+    PetDetails2Component,
+    PetDetails3Component
   ],
   imports: [
     BrowserModule,

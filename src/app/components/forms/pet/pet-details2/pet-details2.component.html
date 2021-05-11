@@ -1,0 +1,29 @@
+<ng-container [formGroup]="petDetails2">
+<div class="wrap">
+    <kendo-formfield class="left-control" orientation="horizontal" showHints="initial">
+        <label class="k-label">Gender</label>
+
+        <ul class="k-radio-list k-list-horizontal">
+            <li class="k-radio-item">
+                <input type="radio" #male value="male" kendoRadioButton formControlName="gender" />
+                <kendo-label class="k-radio-label" [for]="male" text="Male"></kendo-label>
+            </li>
+
+            <li class="k-radio-item">
+                <input type="radio" #female value="female" kendoRadioButton formControlName="gender" />
+                <kendo-label class="k-radio-label" [for]="female" text="Female"></kendo-label>
+            </li>
+        </ul>
+
+        <kendo-formerror>required</kendo-formerror>
+    </kendo-formfield>
+
+    <kendo-formfield>
+        <kendo-label [for]="Breed" text="Breed"></kendo-label>
+        <input formControlName="breed" kendoTextBox #Breed required />
+
+        <kendo-formerror>required</kendo-formerror>
+    </kendo-formfield>
+
+</div>
+</ng-container>

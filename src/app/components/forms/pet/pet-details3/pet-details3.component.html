@@ -1,0 +1,35 @@
+<ng-container [formGroup]="petDetails3">
+<div class="wrap">
+    <kendo-formfield class="left-control">
+        <kendo-label [for]="Color" text="Dominant Color"></kendo-label>
+        <!--input formControlName="color" kendoTextBox #Color required /-->
+        <kendo-colorpicker #Color formControlName="color" view="palette"
+            [paletteSettings]="{ palette: 'austin' }" required></kendo-colorpicker>
+        <kendo-formerror>required</kendo-formerror>
+    </kendo-formfield>
+
+    <kendo-formfield>
+        <kendo-label [for]="Size" text="Size"></kendo-label>
+        <input formControlName="size" kendoTextBox #Size required />
+
+        <kendo-formerror>required</kendo-formerror>
+    </kendo-formfield>
+</div>
+
+<div class="wrap">
+    <kendo-formfield class="left-control">
+        <kendo-label [for]="Weight" text="Weight"></kendo-label>
+        <kendo-numerictextbox #Weight formControlName="weight" [min]="0" [max]="80" required>
+        </kendo-numerictextbox>
+        <kendo-formerror>required</kendo-formerror>
+    </kendo-formfield>
+
+    <kendo-formfield>
+        <kendo-label [for]="Age" text="Age"></kendo-label>
+        <kendo-numerictextbox #Age formControlName="age" [min]="0" [max]="100" required>
+        </kendo-numerictextbox>
+        <kendo-formerror *ngIf="petDetails3.controls.age.errors?.required">required</kendo-formerror>
+        <kendo-formerror *ngIf="petDetails3.controls.age.errors?.max">Not a valid age</kendo-formerror>
+    </kendo-formfield>
+</div>
+</ng-container>

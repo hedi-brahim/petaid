@@ -1,0 +1,18 @@
+<ng-container [formGroup]="petDetails1">
+<div class="wrap">
+    <kendo-formfield class="left-control">
+        <kendo-label [for]="Name" text="Name"></kendo-label>
+        <input formControlName="name" kendoTextBox #Name required />
+
+        <kendo-formerror>required</kendo-formerror>
+    </kendo-formfield>
+
+
+    <kendo-formfield>
+        <kendo-label [for]="Species" text="Species"></kendo-label>
+        <input formControlName="species" kendoTextBox #Species required />
+
+        <kendo-formerror>required</kendo-formerror>
+    </kendo-formfield>
+</div>
+</ng-container>
