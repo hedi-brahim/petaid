@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angu
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { StepperComponent } from '@progress/kendo-angular-layout';
+//import { StepperComponent } from '@progress/kendo-angular-layout';
 
 export interface Item { name: string; species: string; breed: string; gender: string; color: string; size: string; weight: string; age: string }
 
@@ -18,8 +18,8 @@ export class PetComponent implements OnInit {
 
   public currentStep = 0;
 
-  @ViewChild('stepper', { static: true })
-  public stepper: StepperComponent;
+  //@ViewChild('stepper', { static: true })
+  //public stepper: StepperComponent;
 
   private isStepValid = (index: number): boolean => {
     return this.getGroupAt(index).valid || this.currentGroup.untouched;
@@ -58,7 +58,6 @@ export class PetComponent implements OnInit {
       return;
     }
     this.currentGroup.markAllAsTouched();
-    this.stepper.validateSteps();
   }
 
   public prev(): void {
@@ -68,7 +67,6 @@ export class PetComponent implements OnInit {
   public submit(): void {
     if (!this.currentGroup.valid) {
       this.currentGroup.markAllAsTouched();
-      this.stepper.validateSteps();
     }
     if (this.petForm.valid) {
       //let formObj = this.petForm.getRawValue(); // {name: '', description: ''}
@@ -87,6 +85,8 @@ export class PetComponent implements OnInit {
       this.addItem(petItem);
       this.toggle = false;
       this.toggleChange.emit(false);
+      this.petForm.reset();
+      this.currentStep = 0;      
       //console.log('Submitted data', this.petForm.controls);
     }
   }
@@ -107,7 +107,8 @@ export class PetComponent implements OnInit {
   petForm = new FormGroup({
     petDetails1: new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(4)]),
-      species: new FormControl('', Validators.required)
+      species: new FormControl('', Validators.required),
+      avatar: new FormControl(null)
     }),
     petDetails2: new FormGroup({
       breed: new FormControl('', Validators.required),
@@ -163,6 +164,8 @@ export class PetComponent implements OnInit {
   close() {
     this.toggle = false;
     this.toggleChange.emit(false);
+    this.petForm.reset();
+    this.currentStep = 0;
   }
 
 }

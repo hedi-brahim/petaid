@@ -8,11 +8,25 @@
     </kendo-formfield>
 
 
-    <kendo-formfield>
+    <kendo-formfield class="left-control">
         <kendo-label [for]="Species" text="Species"></kendo-label>
         <input formControlName="species" kendoTextBox #Species required />
 
         <kendo-formerror>required</kendo-formerror>
     </kendo-formfield>
+
+    <kendo-formfield>
+        <kendo-label [for]="avatar" [optional]="true" text="Avatar"></kendo-label>
+        <kendo-upload
+            #avatar
+            formControlName="avatar"
+            [saveUrl]="uploadSaveUrl"
+            [removeUrl]="uploadRemoveUrl"
+            [restrictions]="restrictions"
+        >
+        </kendo-upload>
+
+        <kendo-formhint>Allowed extensions are jpg, jpeg or png</kendo-formhint>
+    </kendo-formfield>    
 </div>
 </ng-container>

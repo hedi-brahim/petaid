@@ -34,6 +34,7 @@
     "@progress/kendo-angular-navigation": "^1.0.0",
     "@progress/kendo-angular-popup": "^4.0.0",
     "@progress/kendo-angular-progressbar": "^2.0.0",
+    "@progress/kendo-angular-upload": "^7.1.1",
     "@progress/kendo-drawing": "^1.5.12",
     "@progress/kendo-licensing": "^1.0.2",
     "@progress/kendo-svg-icons": "^0.1.2",
