@@ -23,6 +23,10 @@ import { PetDetails2Component } from './components/forms/pet/pet-details2/pet-de
 import { PetDetails3Component } from './components/forms/pet/pet-details3/pet-details3.component';
 import { UploadsModule } from '@progress/kendo-angular-upload';
 import { HttpClientModule } from '@angular/common/http';
+import { GridModule } from '@progress/kendo-angular-grid';
+import { MainGridComponent } from './components/main-grid/main-grid.component';
+
+import { CategoriesService } from './northwind.service';
 
 
 
@@ -36,7 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
     PetComponent,
     PetDetails1Component,
     PetDetails2Component,
-    PetDetails3Component
+    PetDetails3Component,
+    MainGridComponent
   ],
   imports: [
     BrowserModule,
@@ -53,9 +58,10 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     LabelModule,
     UploadsModule,
-    HttpClientModule
+    HttpClientModule,
+    GridModule
   ],
-  providers: [],
+  providers: [ CategoriesService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

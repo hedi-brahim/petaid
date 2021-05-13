@@ -1,0 +1,6 @@
+<kendo-grid [data]="gridData" [height]="410">
+    <kendo-grid-column
+      *ngFor="let col of columns"
+      [field]="col.field"
+    ></kendo-grid-column>
+  </kendo-grid>
