@@ -1,29 +1,32 @@
 <ng-container [formGroup]="petDetails2">
-<div class="wrap">
-    <kendo-formfield class="left-control" orientation="horizontal" showHints="initial">
-        <label class="k-label">Gender</label>
-
-        <ul class="k-radio-list k-list-horizontal">
-            <li class="k-radio-item">
-                <input type="radio" #male value="male" kendoRadioButton formControlName="gender" />
-                <kendo-label class="k-radio-label" [for]="male" text="Male"></kendo-label>
-            </li>
-
-            <li class="k-radio-item">
-                <input type="radio" #female value="female" kendoRadioButton formControlName="gender" />
-                <kendo-label class="k-radio-label" [for]="female" text="Female"></kendo-label>
-            </li>
-        </ul>
-
-        <kendo-formerror>required</kendo-formerror>
+    <div class="wrap">
+        <kendo-formfield>
+        <kendo-label [for]="files" [text]="'Upload files'"></kendo-label>
+        <kendo-fileselect [restrictions]="fileRestrictions" (select)="selectEventHandler($event)"
+            (remove)="removeEventHandler($event)" #files [formControlName]="'files'" [multiple]="true">
+        </kendo-fileselect>
     </kendo-formfield>
 
-    <kendo-formfield>
-        <kendo-label [for]="Breed" text="Breed"></kendo-label>
-        <input formControlName="breed" kendoTextBox #Breed required />
+        <!--kendo-upload [autoUpload]="false" [saveUrl]="uploadSaveUrl" [removeUrl]="uploadRemoveUrl"
+            [restrictions]="uploadRestrictions" (select)="selectEventHandler($event)"
+            (clear)="clearEventHandler()" (remove)="removeEventHandler($event)"
+            (complete)="completeEventHandler()">
+        </kendo-upload-->
 
-        <kendo-formerror>required</kendo-formerror>
-    </kendo-formfield>
+        <!--div *ngIf="imagePreviews.length" class="img-preview example-config">
+            <h3>Preview selected images</h3>
+            <img *ngFor="let image of imagePreviews" [src]="image.src" alt="image preview"
+                style="width: 200px; margin: 10px;" />
+        </div-->
 
-</div>
+        <!--kendo-formfield>
+            <kendo-label [for]="avatar" [optional]="true" text="Avatar"></kendo-label>
+            <kendo-upload #avatar formControlName="avatar" [saveUrl]="uploadSaveUrl" [removeUrl]="uploadRemoveUrl"
+                [restrictions]="restrictions">
+            </kendo-upload>
+
+            <kendo-formhint>Allowed extensions are jpg, jpeg or png</kendo-formhint>
+        </kendo-formfield-->
+
+    </div>
 </ng-container>

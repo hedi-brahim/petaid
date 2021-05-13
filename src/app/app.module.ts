@@ -21,7 +21,7 @@ import { LabelModule } from '@progress/kendo-angular-label';
 import { PetDetails1Component } from './components/forms/pet/pet-details1/pet-details1.component';
 import { PetDetails2Component } from './components/forms/pet/pet-details2/pet-details2.component';
 import { PetDetails3Component } from './components/forms/pet/pet-details3/pet-details3.component';
-import { UploadModule } from '@progress/kendo-angular-upload';
+import { UploadsModule } from '@progress/kendo-angular-upload';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -52,7 +52,7 @@ import { HttpClientModule } from '@angular/common/http';
     InputsModule,
     ReactiveFormsModule,
     LabelModule,
-    UploadModule,
+    UploadsModule,
     HttpClientModule
   ],
   providers: [],

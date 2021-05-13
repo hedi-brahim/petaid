@@ -16,6 +16,7 @@ export class PetComponent implements OnInit {
   @Input() toggle: boolean;
   @Output() toggleChange = new EventEmitter<boolean>();
 
+  public myFiles: Array<any>;
   public currentStep = 0;
 
   //@ViewChild('stepper', { static: true })
@@ -52,7 +53,8 @@ export class PetComponent implements OnInit {
   }
 
   public next(): void {
-    //console.log('Submitted data', this.petForm.value.petDetails1.name);
+    //console.log('Submitted data', this.petForm.value.petDetails2.images);
+    //console.log('Files uploaded', this.petForm.value.petDetails2.files);
     if (this.currentGroup.valid && this.currentStep !== this.steps.length) {
       this.currentStep += 1;
       return;
@@ -74,8 +76,9 @@ export class PetComponent implements OnInit {
       let petItem = {
         name: this.petForm.value.petDetails1.name,
         species: this.petForm.value.petDetails1.species,
-        breed: this.petForm.value.petDetails2.breed,
-        gender: this.petForm.value.petDetails2.gender,
+        breed: this.petForm.value.petDetails1.breed,
+        gender: this.petForm.value.petDetails1.gender,
+        images: this.petForm.value.petDetails2.images,
         color: this.petForm.value.petDetails3.color,
         size: this.petForm.value.petDetails3.size,
         weight: this.petForm.value.petDetails3.weight,
@@ -108,11 +111,12 @@ export class PetComponent implements OnInit {
     petDetails1: new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(4)]),
       species: new FormControl('', Validators.required),
-      avatar: new FormControl(null)
-    }),
-    petDetails2: new FormGroup({
       breed: new FormControl('', Validators.required),
       gender: new FormControl('', Validators.required)
+    }),
+    petDetails2: new FormGroup({
+      files: new FormControl([], [Validators.required]),
+      images: new FormControl([])
     }),
     petDetails3: new FormGroup({
       color: new FormControl('', Validators.required),
