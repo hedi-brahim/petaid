@@ -27,11 +27,31 @@ import { GridModule } from '@progress/kendo-angular-grid';
 import { MainGridComponent } from './components/main-grid/main-grid.component';
 
 import { CategoriesService } from './northwind.service';
+import { FireCRUDService } from './fire-crud.service';
 
 
+/*
 
+const firebaseConfig = {
+        apiKey: "AIzaSyD68ysdlWJT8yLB7kSUcCuxlrWBqUPX4Tg",
+        authDomain: "kendo-grid-crud.firebaseapp.com",
+        databaseURL: "https://kendo-grid-crud.firebaseio.com",
+        projectId: "kendo-grid-crud",
+        storageBucket: "kendo-grid-crud.appspot.com",
+        messagingSenderId: "1005892024994",
+        appId: "1:1005892024994:web:e74d331eb7cd46f13335fb"
+    };
 
+*/
 
+const config = {
+  apiKey: 'AIzaSyB4-_5thshb6BpSoERI9aRfdF5w3weQnCY',
+  authDomain: 'api-project-400013235268.firebaseapp.com',
+  databaseURL: 'https://api-project-400013235268.firebaseio.com',
+  projectId: 'api-project-400013235268',
+  storageBucket: 'api-project-400013235268.appspot.com',
+  messagingSenderId: '400013235268'
+};
 
 @NgModule({
   declarations: [
@@ -45,6 +65,7 @@ import { CategoriesService } from './northwind.service';
   ],
   imports: [
     BrowserModule,
+    //AngularFireModule.initializeApp(config),      
     AngularFireModule.initializeApp(environment.firebase),    
     AppRoutingModule,
     NavigationModule,
@@ -61,7 +82,7 @@ import { CategoriesService } from './northwind.service';
     HttpClientModule,
     GridModule
   ],
-  providers: [ CategoriesService ],
+  providers: [ CategoriesService, FireCRUDService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
