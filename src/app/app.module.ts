@@ -15,7 +15,7 @@ import { environment } from '../environments/environment';
 import { AppBarComponent } from './components/app-bar/app-bar.component';
 import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { InputsModule } from '@progress/kendo-angular-inputs';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PetComponent } from './components/forms/pet/pet.component';
 import { LabelModule } from '@progress/kendo-angular-label';
 import { PetDetails1Component } from './components/forms/pet/pet-details1/pet-details1.component';
@@ -28,7 +28,16 @@ import { MainGridComponent } from './components/main-grid/main-grid.component';
 
 import { CategoriesService } from './northwind.service';
 import { FireCRUDService } from './fire-crud.service';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { BookListComponent } from './book-list/book-list.component';
+import { SingleBookComponent } from './book-list/single-book/single-book.component';
+import { BookFormComponent } from './book-list/book-form/book-form.component';
+import { HeaderComponent } from './header/header.component';
 
+import {AuthService} from './services/auth.service';
+import {AuthGuardService} from './services/auth-guard.service';
+import {BooksService} from './services/books.service';
 
 /*
 
@@ -61,7 +70,13 @@ const config = {
     PetDetails1Component,
     PetDetails2Component,
     PetDetails3Component,
-    MainGridComponent
+    MainGridComponent,
+    SignupComponent,
+    SigninComponent,
+    BookListComponent,
+    SingleBookComponent,
+    BookFormComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -76,13 +91,14 @@ const config = {
     ButtonsModule,
     DialogsModule,
     InputsModule,
+    FormsModule,
     ReactiveFormsModule,
     LabelModule,
     UploadsModule,
     HttpClientModule,
     GridModule
   ],
-  providers: [ CategoriesService, FireCRUDService ],
+  providers: [ CategoriesService, FireCRUDService, AuthService, BooksService,AuthGuardService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

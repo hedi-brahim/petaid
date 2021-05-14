@@ -46,8 +46,10 @@
     "@progress/kendo-licensing": "^1.0.2",
     "@progress/kendo-svg-icons": "^0.1.2",
     "@progress/kendo-theme-default": "latest",
-    "firebase": "^7.0 || ^8.0",
+    "bootstrap": "^3.3.7",
+    "firebase": "^8.6.1",
     "rxjs": "~6.5.5",
+    "rxjs-compat": "^6.6.7",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
   },
