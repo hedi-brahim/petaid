@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import firebase from 'firebase';
+//import firebase from 'firebase';
 import {AuthService} from '../services/auth.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+import firebase from 'firebase/app';
 
 @Component({
   selector: 'app-header',
@@ -11,9 +13,20 @@ export class HeaderComponent implements OnInit {
 
   isAuth: boolean;
 
-  constructor(private authService: AuthService) { }
+  constructor(public auth: AngularFireAuth) {
+  }
+
+  login() {
+    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  }
+  logout() {
+    this.auth.signOut();
+  }
+
+  //constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    /*
     firebase.auth().onAuthStateChanged(
       (user)=>{
         if(user){
@@ -23,9 +36,11 @@ export class HeaderComponent implements OnInit {
         }
       }
     );
+    */
   }
-
+/*
   onSignOut(){
     this.authService.signOutUser();
   }
+  */
 }

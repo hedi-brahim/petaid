@@ -35,9 +35,22 @@ import { SingleBookComponent } from './book-list/single-book/single-book.compone
 import { BookFormComponent } from './book-list/book-form/book-form.component';
 import { HeaderComponent } from './header/header.component';
 
-import {AuthService} from './services/auth.service';
+import {AuthService} from './shared/services/auth.service';
 import {AuthGuardService} from './services/auth-guard.service';
 import {BooksService} from './services/books.service';
+
+// App components
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+
+// Firebase services + enviorment module
+//import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+//import { environment } from '../environments/environment';
 
 /*
 
@@ -52,7 +65,7 @@ const firebaseConfig = {
     };
 
 */
-
+/*
 const config = {
   apiKey: 'AIzaSyB4-_5thshb6BpSoERI9aRfdF5w3weQnCY',
   authDomain: 'api-project-400013235268.firebaseapp.com',
@@ -61,7 +74,7 @@ const config = {
   storageBucket: 'api-project-400013235268.appspot.com',
   messagingSenderId: '400013235268'
 };
-
+*/
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,7 +89,12 @@ const config = {
     BookListComponent,
     SingleBookComponent,
     BookFormComponent,
-    HeaderComponent
+    HeaderComponent,
+    DashboardComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,
@@ -96,7 +114,9 @@ const config = {
     LabelModule,
     UploadsModule,
     HttpClientModule,
-    GridModule
+    GridModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   providers: [ CategoriesService, FireCRUDService, AuthService, BooksService,AuthGuardService ],
   bootstrap: [AppComponent]

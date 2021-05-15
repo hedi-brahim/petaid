@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import firebase from 'firebase';
+//import firebase from 'firebase';
 
 
 @Component({
@@ -10,6 +10,7 @@ import firebase from 'firebase';
 export class AppComponent {
   
   constructor(){
+    /*
     var config= {
       apiKey: "AIzaSyB2jnvDYHrHAuiXzUlWpz4_4Z1kWCEOhSY",
       authDomain: "petaid-95d12.firebaseapp.com",
@@ -20,5 +21,6 @@ export class AppComponent {
     };
 
     firebase.initializeApp(config);
+    */
   }
 }
