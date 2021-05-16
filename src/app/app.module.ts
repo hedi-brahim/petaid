@@ -35,9 +35,9 @@ import { SingleBookComponent } from './book-list/single-book/single-book.compone
 import { BookFormComponent } from './book-list/book-form/book-form.component';
 import { HeaderComponent } from './header/header.component';
 
-import {AuthService} from './shared/services/auth.service';
-import {AuthGuardService} from './services/auth-guard.service';
-import {BooksService} from './services/books.service';
+import { AuthService } from './shared/services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
+import { BooksService } from './services/books.service';
 
 // App components
 import { SignInComponent } from './components/sign-in/sign-in.component';
@@ -50,6 +50,8 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 //import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { MenuModule } from '@progress/kendo-angular-menu';
+
 //import { environment } from '../environments/environment';
 
 /*
@@ -84,11 +86,13 @@ const config = {
     PetDetails2Component,
     PetDetails3Component,
     MainGridComponent,
+    /* books app */
     SignupComponent,
     SigninComponent,
     BookListComponent,
     SingleBookComponent,
     BookFormComponent,
+    /* auth app */
     HeaderComponent,
     DashboardComponent,
     SignInComponent,
@@ -99,7 +103,7 @@ const config = {
   imports: [
     BrowserModule,
     //AngularFireModule.initializeApp(config),      
-    AngularFireModule.initializeApp(environment.firebase),    
+    AngularFireModule.initializeApp(environment.firebase),
     AppRoutingModule,
     NavigationModule,
     BrowserAnimationsModule,
@@ -116,9 +120,12 @@ const config = {
     HttpClientModule,
     GridModule,
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    MenuModule
   ],
-  providers: [ CategoriesService, FireCRUDService, AuthService, BooksService,AuthGuardService ],
+  //providers: [ CategoriesService, FireCRUDService, AuthService, BooksService,AuthGuardService ],
+  providers: [],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

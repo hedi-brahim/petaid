@@ -25,12 +25,14 @@ const routes: Routes = [
   {path:'', redirectTo:'books', pathMatch:'full'},
   {path:'**',redirectTo:'books'},
   */
+ /*
   { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
   { path: 'sign-in', component: SignInComponent},
   { path: 'register-user', component: SignUpComponent},
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent }
+  */
 ];
 
 @NgModule({
