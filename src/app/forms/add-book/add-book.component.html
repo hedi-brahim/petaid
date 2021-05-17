@@ -16,8 +16,8 @@
         <span class="page">Step {{ currentStep + 1 }} of 2</span>
         <div>
           <button class="k-button prev" *ngIf="currentStep !== 0" (click)="prev()">Previous</button>
-          <button class="k-button k-primary" (click)="next()" *ngIf="currentStep !== 2">Next</button>
-          <button class="k-button k-primary" type="button" (click)="submit()" *ngIf="currentStep === 2">Submit</button>
+          <button class="k-button k-primary" (click)="next()" *ngIf="currentStep !== 1">Next</button>
+          <button class="k-button k-primary" type="button" (click)="submit()" *ngIf="currentStep === 1">Submit</button>
         </div>
       </div>
   

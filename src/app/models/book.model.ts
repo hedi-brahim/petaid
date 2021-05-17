@@ -1,6 +1,5 @@
-export interface Book {
-    title: string;
-    author: string;
+export class Book {
     synopsis: string;
-    images: string[];
+    photo: string;
+    constructor(public title: string, public author: string) { }
 }

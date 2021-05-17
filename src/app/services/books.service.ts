@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../models/Book.model';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 import firebase from 'firebase';
 import { DataSnapshot } from '@angular/fire/database/interfaces';
 

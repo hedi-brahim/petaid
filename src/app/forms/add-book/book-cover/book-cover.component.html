@@ -1,9 +1,9 @@
 <ng-container [formGroup]="bookCover">
     <div class="wrap">
         <kendo-formfield>
-        <kendo-label [for]="files" [text]="'Upload files'"></kendo-label>
+        <kendo-label [for]="images" [text]="'Upload Images'"></kendo-label>
         <kendo-fileselect [restrictions]="fileRestrictions" (select)="selectEventHandler($event)"
-            (remove)="removeEventHandler($event)" #files [formControlName]="'files'" [multiple]="true">
+            (remove)="removeEventHandler($event)" #images [formControlName]="'images'" [multiple]="true">
         </kendo-fileselect>
     </kendo-formfield>
 

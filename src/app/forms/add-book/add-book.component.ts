@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angu
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import {Book} from '../../models/book.model';
+import {Book} from '../../models/book';
 
 @Component({
   selector: 'app-add-book',
@@ -15,7 +15,7 @@ export class AddBookComponent implements OnInit {
   @Output() toggleChange = new EventEmitter<boolean>();
   items: Observable<Book[]>;
   private itemsCollection: AngularFirestoreCollection<Book>;
-  public myFiles: Array<any>;
+//  public myFiles: Array<any>;
   public currentStep = 0;
   
   bookForm = new FormGroup({
@@ -25,8 +25,8 @@ export class AddBookComponent implements OnInit {
       synopsis: new FormControl('', Validators.required)
     }),
     bookCover: new FormGroup({
-      files: new FormControl([], [Validators.required]),
-      images: new FormControl([])
+      //files: new FormControl([], [Validators.required]),
+      images: new FormControl([], [Validators.required])
     })
   });
 
