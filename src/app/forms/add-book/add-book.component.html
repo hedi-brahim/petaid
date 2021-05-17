@@ -1,0 +1,40 @@
+<kendo-dialog title="Add Book" *ngIf="toggle" (close)="close()" [height]="550" [width]="400">
+
+    <kendo-stepper #stepper [steps]="steps" stepType="indicator" [(currentStep)]="currentStep"> </kendo-stepper>
+  
+    <form class="k-form" [formGroup]="bookForm">
+  
+      <!--fieldset class="k-form-fieldset"-->
+      <!--legend class="k-form-legend">Pet Details</legend-->
+      <app-book-details *ngIf="currentStep === 0" [bookDetails]="currentGroup"> </app-book-details>
+  
+      <app-book-cover *ngIf="currentStep === 1" [bookCover]="currentGroup"> </app-book-cover>
+  
+      <span class="k-form-separator"></span>
+  
+      <div class="k-form-buttons k-buttons-end">
+        <span class="page">Step {{ currentStep + 1 }} of 2</span>
+        <div>
+          <button class="k-button prev" *ngIf="currentStep !== 0" (click)="prev()">Previous</button>
+          <button class="k-button k-primary" (click)="next()" *ngIf="currentStep !== 2">Next</button>
+          <button class="k-button k-primary" type="button" (click)="submit()" *ngIf="currentStep === 2">Submit</button>
+        </div>
+      </div>
+  
+      <!--div class="k-form-buttons">
+                  <button class="k-button" type="reset">Clear</button>
+                  <button class="k-button k-primary" type="submit" [disabled]="!petForm.valid">Submit</button>
+              </div-->
+      <!--/fieldset-->
+    </form>
+    <!-- Just for debugging purpose -->
+    <!--div>
+    <p>
+      Form Value: {{ petForm.value | json }}
+    </p>
+  
+    <p>
+      Form Status: {{ petForm.status }}
+    </p>
+  </div-->
+  </kendo-dialog>

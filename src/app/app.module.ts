@@ -51,6 +51,9 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { MenuModule } from '@progress/kendo-angular-menu';
+import { AddBookComponent } from './forms/add-book/add-book.component';
+import { BookDetailsComponent } from './forms/add-book/book-details/book-details.component';
+import { BookCoverComponent } from './forms/add-book/book-cover/book-cover.component';
 
 //import { environment } from '../environments/environment';
 
@@ -98,7 +101,10 @@ const config = {
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    AddBookComponent,
+    BookDetailsComponent,
+    BookCoverComponent
   ],
   imports: [
     BrowserModule,

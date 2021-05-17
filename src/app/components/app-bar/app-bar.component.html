@@ -1,7 +1,9 @@
-<kendo-appbar [position]="'top'">
-
+<kendo-appbar class="navbar navbar-light bg-light" [position]="'top'">
+  <div class="container">
   <kendo-appbar-section>
-    <h2>BookShelves</h2>
+    <a class="navbar-brand" href="#">
+      <img src="assets/logo.png" alt="">
+    </a>
   </kendo-appbar-section>
 
   <kendo-appbar-spacer [width]="'32px'"></kendo-appbar-spacer>
@@ -17,14 +19,20 @@
 <kendo-appbar-spacer></kendo-appbar-spacer>
 
   <kendo-appbar-section>
-    <button kendoButton style="font-size: 1em;" iconClass="fas fa-plus-square"
+    <button kendoButton style="font-size: 2em; color: Tomato;" iconClass="fas fa-plus-square"
       (click)="open()">Add Book</button>
   </kendo-appbar-section>
   <kendo-appbar-section>
-    <button kendoButton style="font-size: 1em; color: Tomato;" iconClass="fas fa-sign-in-alt">Sign-In</button>
+    <button kendoButton style="font-size: 2em; color: Tomato;" iconClass="fas fa-sign-in-alt">Sign-In</button>
   </kendo-appbar-section>
+  <kendo-appbar-section>
+    <button kendoButton style="font-size: 2em; color: Tomato;" iconClass="fas fa-user-plus">Sign-Up</button>
+  </kendo-appbar-section>
+</div>
 </kendo-appbar>
 
+<app-add-book [(toggle)]="toggle"></app-add-book>
+<!--app-pet [(toggle)]="toggle"></app-pet-->
 
 <!--div class="w3-row">
   <div *ngFor="let item of item$ | async" class="w3-col s6 m4 l2" (click)="setSelectedAd(annonce)"
@@ -67,5 +75,4 @@
   <kendo-dialog-actions>
     <button kendoButton (click)="close('no')">No</button>
     <button kendoButton (click)="close('yes')" primary="true">Yes</button>
-  </kendo-dialog-actions>
-  <app-pet [(toggle)]="toggle"></app-pet-->
+  </kendo-dialog-actions-->

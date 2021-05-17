@@ -1,0 +1,24 @@
+<ng-container [formGroup]="bookDetails">
+    <div class="wrap">
+        <kendo-formfield class="left-control">
+            <kendo-label [for]="Title" text="Title"></kendo-label>
+            <input formControlName="title" kendoTextBox #Title required />
+            <kendo-formerror>required</kendo-formerror>
+        </kendo-formfield>
+
+
+        <kendo-formfield class="left-control">
+            <kendo-label [for]="Author" text="Author"></kendo-label>
+            <input formControlName="author" kendoTextBox #Author required />
+            <kendo-formerror>required</kendo-formerror>
+        </kendo-formfield>
+
+        <kendo-formfield>
+            <kendo-label [for]="Synopsis" text="Synopsis"></kendo-label>
+            <kendo-textarea #Synopsis formControlName="synopsis" placeholder="Type a synopsis" required>
+            </kendo-textarea>
+            <kendo-formerror>required</kendo-formerror>
+        </kendo-formfield>
+
+    </div>
+</ng-container>
