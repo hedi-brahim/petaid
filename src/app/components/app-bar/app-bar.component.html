@@ -1,36 +1,42 @@
 <kendo-appbar class="navbar navbar-light bg-light" [position]="'top'">
   <div class="container">
-  <kendo-appbar-section>
-    <a class="navbar-brand" href="#">
-      <img src="assets/logo.png" alt="">
-    </a>
-  </kendo-appbar-section>
+    <kendo-appbar-section>
+      <a class="navbar-brand" href="#">
+        <img src="assets/logo.png" alt="">
+      </a>
+    </kendo-appbar-section>
 
-  <kendo-appbar-spacer [width]="'32px'"></kendo-appbar-spacer>
+    <kendo-appbar-spacer [width]="'32px'"></kendo-appbar-spacer>
 
-  <kendo-appbar-section>
-    <kendo-menu>
-      <kendo-menu-item text="Home">
-      </kendo-menu-item>
-      <kendo-menu-item text="About"> </kendo-menu-item>
-  </kendo-menu>
-</kendo-appbar-section>  
+    <kendo-appbar-section>
+      <kendo-menu>
+        <kendo-menu-item text="Home">
+        </kendo-menu-item>
+        <kendo-menu-item text="About"> </kendo-menu-item>
+      </kendo-menu>
+    </kendo-appbar-section>
 
-<kendo-appbar-spacer></kendo-appbar-spacer>
+    <kendo-appbar-spacer></kendo-appbar-spacer>
 
-  <kendo-appbar-section>
-    <button kendoButton style="font-size: 2em; color: Tomato;" iconClass="fas fa-plus-square"
-      (click)="open()">Add Book</button>
-  </kendo-appbar-section>
-  <kendo-appbar-section>
-    <button kendoButton style="font-size: 2em; color: Tomato;" iconClass="fas fa-sign-in-alt">Sign-In</button>
-  </kendo-appbar-section>
-  <kendo-appbar-section>
-    <button kendoButton style="font-size: 2em; color: Tomato;" iconClass="fas fa-user-plus">Sign-Up</button>
-  </kendo-appbar-section>
-</div>
+    <kendo-appbar-section>
+      <button kendoButton style="font-size: 2em; color: Tomato;" iconClass="fas fa-plus-square" (click)="open()">Add
+        Book</button>
+    </kendo-appbar-section>
+    <kendo-appbar-section>
+      <button kendoButton #anchor (click)="switchLogIn()" style="font-size: 2em; color: Tomato;"
+        iconClass="fas fa-sign-in-alt">Log-In</button>
+      <kendo-popup [anchor]="anchor" *ngIf="toggleLogIn">
+        <app-log-in [(toggleLogIn)]="toggleLogIn"></app-log-in>
+      </kendo-popup>
+    </kendo-appbar-section>
+    <kendo-appbar-section>
+      <button kendoButton style="font-size: 2em; color: Tomato;" iconClass="fas fa-user-plus"
+        (click)="openRegister()">Register</button>
+    </kendo-appbar-section>
+  </div>
 </kendo-appbar>
 
+<app-register [(toggleRegister)]="toggleRegister"></app-register>
 <app-add-book [(toggle)]="toggle"></app-add-book>
 <!--app-pet [(toggle)]="toggle"></app-pet-->
 
@@ -69,7 +75,7 @@
             <button type="button" class="k-button k-primary" (click)="submit()">Submit</button>
         </div>
     </form-->
-  <!--kendo-textbox [value]="normalValue" [formControl]="name" [clearButton]="true">
+<!--kendo-textbox [value]="normalValue" [formControl]="name" [clearButton]="true">
   </kendo-textbox>
   <p style="margin: 30px; text-align: center;">Are you sure you want to continue? {{name.value}}</p>
   <kendo-dialog-actions>

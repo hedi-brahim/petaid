@@ -12,6 +12,17 @@ export interface Item { name: string; }
 })
 export class AppBarComponent implements OnInit {
 
+  //private toggleText = "Show";
+  //show = false;
+  public toggle = false;
+  public toggleLogIn = false;  
+  public toggleRegister = false;
+
+  //public onToggle(): void {
+    //this.show = !this.show;
+    //this.toggleText = this.show ? "Hide" : "Show";
+  //}
+
   public kendokaAvatar = 'https://www.telerik.com/kendo-angular-ui-develop/components/navigation/appbar/assets/kendoka-angular.png';
 
   private itemsCollection: AngularFirestoreCollection<Item>;
@@ -46,7 +57,7 @@ export class AppBarComponent implements OnInit {
     this.addItem({ name: this.name.value});
   }
 
-  public toggle = false;
+  
 
   //public close(flag) {
       //console.log(`Dialog result: ${status}`);
@@ -60,6 +71,14 @@ export class AppBarComponent implements OnInit {
   public open() {
       this.toggle = true;
   }
+
+  public openRegister() {
+    this.toggleRegister  = true;
+}
+
+  public switchLogIn() {
+    this.toggleLogIn = !this.toggleLogIn;
+}
 
   public normalValue = 'Editable TextBox';
 

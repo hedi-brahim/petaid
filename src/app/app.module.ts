@@ -54,6 +54,11 @@ import { MenuModule } from '@progress/kendo-angular-menu';
 import { AddBookComponent } from './forms/add-book/add-book.component';
 import { BookDetailsComponent } from './forms/add-book/book-details/book-details.component';
 import { BookCoverComponent } from './forms/add-book/book-cover/book-cover.component';
+import { PopupModule } from '@progress/kendo-angular-popup';
+import { LogInComponent } from './forms/log-in/log-in.component';
+import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './forms/register/register.component';
+
 
 //import { environment } from '../environments/environment';
 
@@ -104,7 +109,10 @@ const config = {
     VerifyEmailComponent,
     AddBookComponent,
     BookDetailsComponent,
-    BookCoverComponent
+    BookCoverComponent,
+    LogInComponent,
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -127,7 +135,8 @@ const config = {
     GridModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
-    MenuModule
+    MenuModule,
+    PopupModule
   ],
   //providers: [ CategoriesService, FireCRUDService, AuthService, BooksService,AuthGuardService ],
   providers: [],

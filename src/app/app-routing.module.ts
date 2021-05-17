@@ -10,6 +10,7 @@ import { AuthGuardService } from './services/auth-guard.service';
 // Import all the components for which navigation service has to be activated 
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { AuthGuard } from "./shared/guard/auth.guard";
@@ -25,14 +26,19 @@ const routes: Routes = [
   {path:'', redirectTo:'books', pathMatch:'full'},
   {path:'**',redirectTo:'books'},
   */
- /*
-  { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
-  { path: 'sign-in', component: SignInComponent},
-  { path: 'register-user', component: SignUpComponent},
+  /*
+   { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
+   { path: 'sign-in', component: SignInComponent},
+   { path: 'register-user', component: SignUpComponent},
+   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+   { path: 'forgot-password', component: ForgotPasswordComponent },
+   { path: 'verify-email-address', component: VerifyEmailComponent }
+   */
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'verify-email-address', component: VerifyEmailComponent }
-  */
+  { path: 'verify-email-address', component: VerifyEmailComponent },
+  { path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({
