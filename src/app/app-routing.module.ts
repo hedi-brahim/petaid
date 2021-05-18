@@ -11,6 +11,7 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { AuthGuard } from "./shared/guard/auth.guard";
@@ -36,6 +37,7 @@ const routes: Routes = [
    */
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'verify-email-address', component: VerifyEmailComponent },
   { path: '**', redirectTo: 'home' }

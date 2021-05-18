@@ -58,6 +58,7 @@ import { PopupModule } from '@progress/kendo-angular-popup';
 import { LogInComponent } from './forms/log-in/log-in.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './forms/register/register.component';
+import { AboutComponent } from './about/about.component';
 
 
 //import { environment } from '../environments/environment';
@@ -112,7 +113,8 @@ const config = {
     BookCoverComponent,
     LogInComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

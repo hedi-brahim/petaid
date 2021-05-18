@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  ElementRef, HostListener, ViewChild, ViewEncapsulation, } from '@angular/core';
+
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
+import { Router } from "@angular/router";
+
 
 export interface Item { name: string; }
 
@@ -12,18 +15,22 @@ export interface Item { name: string; }
 })
 export class AppBarComponent implements OnInit {
 
+  @ViewChild("anchor") public anchor: ElementRef;
+  @ViewChild("popup", { read: ElementRef }) public popup: ElementRef;
+  
   //private toggleText = "Show";
   //show = false;
   public toggle = false;
   public toggleLogIn = false;  
   public toggleRegister = false;
 
+  public menuItems: any[];
   //public onToggle(): void {
     //this.show = !this.show;
     //this.toggleText = this.show ? "Hide" : "Show";
   //}
 
-  public kendokaAvatar = 'https://www.telerik.com/kendo-angular-ui-develop/components/navigation/appbar/assets/kendoka-angular.png';
+  //public kendokaAvatar = 'https://www.telerik.com/kendo-angular-ui-develop/components/navigation/appbar/assets/kendoka-angular.png';
 
   private itemsCollection: AngularFirestoreCollection<Item>;
 
@@ -35,12 +42,56 @@ export class AppBarComponent implements OnInit {
 
   items: Observable<Item[]>;
 
-  constructor(private afs: AngularFirestore) {
+  constructor(private router: Router, private afs: AngularFirestore) {
     this.itemsCollection = afs.collection<Item>('pets');
     this.items = this.itemsCollection.valueChanges();
+    this.menuItems = this.mapItems(router.config);
   }
 
   ngOnInit() { }
+
+  @HostListener("keydown", ["$event"])
+  public keydown(event: any): void {
+    if (event.keyCode === 27) {
+      this.exitLogIn();
+    }
+  }
+
+  @HostListener("document:click", ["$event"])
+  public documentClick(event: any): void {
+    if (!this.contains(event.target)) {
+      this.exitLogIn();
+    }
+  }
+
+  private contains(target: any): boolean {
+    return (
+      this.anchor.nativeElement.contains(target) ||
+      (this.popup ? this.popup.nativeElement.contains(target) : false)
+    );
+  }
+
+  public onSelect({ item }): void {
+    if (!item.items) {
+      this.router.navigate([item.path]);
+    }
+  }
+  
+  // convert the routes to menu items.
+  private mapItems(routes: any[], path?: string): any[] {
+    return routes.map((item) => {
+      const result: any = {
+        text: item.text,
+        path: (path ? `${path}/` : "") + item.path,
+      };
+
+      if (item.children) {
+        result.items = this.mapItems(item.children, item.path);
+      }
+
+      return result;
+    });
+  }
 
   addItem(item: Item) {
     this.itemsCollection.add(item);
@@ -78,6 +129,10 @@ export class AppBarComponent implements OnInit {
 
   public switchLogIn() {
     this.toggleLogIn = !this.toggleLogIn;
+}
+
+public exitLogIn() {
+  this.toggleLogIn = false;
 }
 
   public normalValue = 'Editable TextBox';

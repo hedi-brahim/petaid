@@ -1,5 +1,7 @@
 <kendo-appbar class="navbar navbar-light bg-light" [position]="'top'">
+
   <div class="container">
+
     <kendo-appbar-section>
       <a class="navbar-brand" href="#">
         <img src="assets/logo.png" alt="">
@@ -9,28 +11,28 @@
     <kendo-appbar-spacer [width]="'32px'"></kendo-appbar-spacer>
 
     <kendo-appbar-section>
-      <kendo-menu>
-        <kendo-menu-item text="Home">
-        </kendo-menu-item>
-        <kendo-menu-item text="About"> </kendo-menu-item>
-      </kendo-menu>
+      <!--kendo-menu [items]="menuItems" (select)="onSelect($event)"></kendo-menu-->
+      <ul>
+        <li><a routerLink="home">Home</a></li>
+        <li><a routerLink="about">About</a></li>
+      </ul>      
     </kendo-appbar-section>
 
     <kendo-appbar-spacer></kendo-appbar-spacer>
 
-    <kendo-appbar-section>
+    <!--kendo-appbar-section>
       <button kendoButton style="font-size: 2em; color: Tomato;" iconClass="fas fa-plus-square" (click)="open()">Add
         Book</button>
-    </kendo-appbar-section>
+    </kendo-appbar-section-->
     <kendo-appbar-section>
-      <button kendoButton #anchor (click)="switchLogIn()" style="font-size: 2em; color: Tomato;"
+      <button kendoButton #anchor (click)="switchLogIn()" class="btn btn-primary"
         iconClass="fas fa-sign-in-alt">Log-In</button>
-      <kendo-popup [anchor]="anchor" *ngIf="toggleLogIn">
+      <kendo-popup #popup [anchor]="anchor" *ngIf="toggleLogIn">
         <app-log-in [(toggleLogIn)]="toggleLogIn"></app-log-in>
       </kendo-popup>
     </kendo-appbar-section>
     <kendo-appbar-section>
-      <button kendoButton style="font-size: 2em; color: Tomato;" iconClass="fas fa-user-plus"
+      <button kendoButton iconClass="fas fa-user-plus" class="btn btn-success"
         (click)="openRegister()">Register</button>
     </kendo-appbar-section>
   </div>

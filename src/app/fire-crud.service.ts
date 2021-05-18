@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { products } from './products';
-import { pets } from './pets';
+import { books } from './books';
 
-export interface Item { age: number; breed: string; name: string }
+//export interface Item { age: number; breed: string; name: string }
+export interface Item { title: string; author: string }
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class FireCRUDService {
 
         public get(): Observable<any>{
             //return this.db.list('products').valueChanges();
-            this.itemsCollection = this.afs.collection<Item>('pets');
+            this.itemsCollection = this.afs.collection<Item>('books');
             this.items = this.itemsCollection.valueChanges();
 
             return this.items;
@@ -40,10 +40,10 @@ export class FireCRUDService {
         }
 
         public remove(data: any) {
-            this.db.database.ref('pets/' + data.key).remove();
+            this.db.database.ref('books/' + data.key).remove();
         }
 
         public resetData(){
-            this.db.database.ref('/').set(products);
+            this.db.database.ref('/').set(books);
         }
 }
