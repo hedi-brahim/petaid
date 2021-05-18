@@ -1,20 +1,22 @@
-<kendo-dialog title="Register New User" *ngIf="toggleRegister" (close)="close()" [height]="350" [width]="400">
+<kendo-dialog *ngIf="toggleRegister" (close)="close()" [height]="250" [width]="300">
 
-    <div class="authBlock">
+    <kendo-dialog-titlebar>
+        <div style="font-size: 18px; line-height: 1.3em;">
+         Register New User
+        </div>
+      </kendo-dialog-titlebar>
 
-        <div class="formGroup">
             <input type="email" class="formControl" placeholder="Email Address" #userEmail required>
-        </div>
 
-        <div class="formGroup">
+
             <input type="password" class="formControl" placeholder="Password" #userPwd required>
-        </div>
 
-        <div class="formGroup">
+
+     
             <!--input type="button" class="btn btnPrimary" value="Continue"
                 (click)="close();authService.SignUp(userEmail.value, userPwd.value);"-->
             <button kendoButton [primary]="true" (click)="close();authService.SignUp(userEmail.value, userPwd.value);">Continue</button>
-        </div>
+
 
         <!--div class="formGroup">
           <span class="or"><span class="orInner">Or</span></span>
@@ -27,9 +29,6 @@
             Continue with Google
           </button>
         </div-->
-
-    </div>
-
     <!--div class="redirectToLogin">
         <span>Already have an account? <span class="redirect" routerLink="/sign-in">Log In</span></span>
     </div-->
