@@ -59,6 +59,7 @@ import { LogInComponent } from './forms/log-in/log-in.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './forms/register/register.component';
 import { AboutComponent } from './about/about.component';
+import { LoginPopupComponent } from './components/login-popup/login-popup.component';
 
 
 //import { environment } from '../environments/environment';
@@ -114,7 +115,8 @@ const config = {
     LogInComponent,
     HomeComponent,
     RegisterComponent,
-    AboutComponent
+    AboutComponent,
+    LoginPopupComponent
   ],
   imports: [
     BrowserModule,

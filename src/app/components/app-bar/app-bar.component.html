@@ -24,13 +24,7 @@
       <button kendoButton style="font-size: 2em; color: Tomato;" iconClass="fas fa-plus-square" (click)="open()">Add
         Book</button>
     </kendo-appbar-section-->
-    <kendo-appbar-section>
-      <button kendoButton #anchor (click)="switchLogIn()" class="btn btn-primary"
-        iconClass="fas fa-sign-in-alt">Log-In</button>
-      <kendo-popup #popup [anchor]="anchor" *ngIf="toggleLogIn">
-        <app-log-in [(toggleLogIn)]="toggleLogIn"></app-log-in>
-      </kendo-popup>
-    </kendo-appbar-section>
+    <app-login-popup></app-login-popup>
     <kendo-appbar-section>
       <button kendoButton iconClass="fas fa-user-plus" class="btn btn-success"
         (click)="openRegister()">Register</button>

@@ -1,0 +1,7 @@
+<kendo-appbar-section>
+    <button kendoButton #anchor (click)="switchLogIn()" class="btn btn-primary"
+      iconClass="fas fa-sign-in-alt">Log-In</button>
+    <kendo-popup #popup [anchor]="anchor" *ngIf="toggleLogIn">
+      <app-log-in [(toggleLogIn)]="toggleLogIn"></app-log-in>
+    </kendo-popup>
+  </kendo-appbar-section>

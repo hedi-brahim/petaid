@@ -15,13 +15,11 @@ export interface Item { name: string; }
 })
 export class AppBarComponent implements OnInit {
 
-  @ViewChild("anchor") public anchor: ElementRef;
-  @ViewChild("popup", { read: ElementRef }) public popup: ElementRef;
-  
+
+
   //private toggleText = "Show";
   //show = false;
   public toggle = false;
-  public toggleLogIn = false;  
   public toggleRegister = false;
 
   public menuItems: any[];
@@ -50,26 +48,7 @@ export class AppBarComponent implements OnInit {
 
   ngOnInit() { }
 
-  @HostListener("keydown", ["$event"])
-  public keydown(event: any): void {
-    if (event.keyCode === 27) {
-      this.exitLogIn();
-    }
-  }
 
-  @HostListener("document:click", ["$event"])
-  public documentClick(event: any): void {
-    if (!this.contains(event.target)) {
-      this.exitLogIn();
-    }
-  }
-
-  private contains(target: any): boolean {
-    return (
-      this.anchor.nativeElement.contains(target) ||
-      (this.popup ? this.popup.nativeElement.contains(target) : false)
-    );
-  }
 
   public onSelect({ item }): void {
     if (!item.items) {
@@ -127,13 +106,7 @@ export class AppBarComponent implements OnInit {
     this.toggleRegister  = true;
 }
 
-  public switchLogIn() {
-    this.toggleLogIn = !this.toggleLogIn;
-}
 
-public exitLogIn() {
-  this.toggleLogIn = false;
-}
 
   public normalValue = 'Editable TextBox';
 
