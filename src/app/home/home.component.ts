@@ -41,6 +41,33 @@ export class HomeComponent implements OnInit {
     */
   }
 
+  private photoURL(dataItem: any): string {
+    //const code: string = dataItem.img_id + dataItem.gender;
+    //const image: any = images;
+    let image;
+
+    //return image[code];
+     // myBase64 is the base64 string
+    this.getBase64FromUrl(dataItem.images[0]).then((data)=>{image = data;})
+
+
+    return image;
+}
+
+getBase64FromUrl = async (url) => {
+  const data = await fetch(url);
+  const blob = await data.blob();
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(blob); 
+    reader.onloadend = () => {
+      const base64data = reader.result;   
+      resolve(base64data);
+    }
+  });
+}
+
+
   public addHandler({ sender }) {
     //console.log("add data");
     this.closeEditor(sender);

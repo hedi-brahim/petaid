@@ -3,13 +3,29 @@
       *ngFor="let col of columns"
       [field]="col.field"
     ></kendo-grid-column>
-  </kendo-grid-->
+  </kendo-grid--><p> </p>
+
+  <h1>BookShelves</h1>
+  <p>Hi Every one, BookShelves is a book swapping website. You can choose a book from the list and contact his owner to make a free exchange ;-)</p>
+  <p>If you register you can submit your own books for exchanges.</p>
+
   <kendo-grid [data]="view | async" [height]="470" (edit)="editHandler($event)" (cancel)="cancelHandler($event)"
   (save)="saveHandler($event)" (remove)="removeHandler($event)" (add)="addHandler($event)">
   <!--ng-template kendoGridToolbarTemplate>
     <button kendoGridAddCommand>Add new</button>
   </ng-template-->
-  <kendo-grid-column field="title" title="title"></kendo-grid-column>
+  <!--kendo-grid-column field="full_name" title="Contact Name" [width]="220">
+    <ng-template kendoGridCellTemplate let-dataItem>
+        <div class="customer-photo" [ngStyle]="{'background-image' : photoURL(dataItem)}"></div>
+        <div class="customer-name">{{ dataItem.full_name }}</div>
+    </ng-template>
+</kendo-grid-column-->
+  <kendo-grid-column field="title" title="title">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <div class="customer-photo" [ngStyle]="{'background-image' : photoURL(dataItem)}"></div>
+      <div class="customer-name">{{ dataItem.title }}</div>
+  </ng-template>
+  </kendo-grid-column>
   <kendo-grid-column field="author" title="author"></kendo-grid-column>
   <!--kendo-grid-column field="Discontinued" editor="boolean" title="Discontinued"></kendo-grid-column>
   <kendo-grid-column field="UnitsInStock" editor="numeric" title="Units In Stock"></kendo-grid-column-->
