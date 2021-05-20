@@ -48,12 +48,12 @@ export class HomeComponent implements OnInit {
 
     //return image[code];
      // myBase64 is the base64 string
-    this.getBase64FromUrl(dataItem.images[0]).then((data)=>{image = data;})
+    //this.getBase64FromUrl(dataItem.images[0]).then((data)=>{image = data;})
 
 
     return image;
 }
-
+/*
 getBase64FromUrl = async (url) => {
   const data = await fetch(url);
   const blob = await data.blob();
@@ -67,7 +67,7 @@ getBase64FromUrl = async (url) => {
   });
 }
 
-
+*/
   public addHandler({ sender }) {
     //console.log("add data");
     this.closeEditor(sender);
